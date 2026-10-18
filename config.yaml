@@ -1,0 +1,28 @@
+dataset: Amy
+seed: 4294967291
+
+pretrained_models:
+  t5_path: /huggingface/prot
+  bert_path: /huggingface/bert
+
+model:
+  feature: ['prot-t5', 'prot-bert', 'esm-1']
+  use_attention: true
+  sequence_model: bi-lstm
+  residual_add: true
+
+training:
+  batch_size: 16
+  init_learning_rate: 0.005 
+  epochs: 30
+  early_stopping_patience: 10
+
+
+save:
+  model_path: model
+  shap_path: saved/shap
+  losses_path: saved/losses
+  probs_path: saved/probs
+  attn_weights_path: saved/attn_weights
+  visual_features_path: saved/visual_features
+  masking_path: saved/masking
